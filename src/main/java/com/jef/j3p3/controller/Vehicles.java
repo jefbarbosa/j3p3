@@ -17,7 +17,7 @@ public class Vehicles {
 
     private VehicleService vehicleService;
 
-    public Vehicles(@Autowired VehicleService vehicleService) {
+    public Vehicles(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
 
@@ -44,7 +44,7 @@ public class Vehicles {
     public ResponseEntity<List<VehicleDTO>> filterVehicleByDate(
             @RequestParam("since") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate since,
             @RequestParam("to") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to) {
-        
+
         return new ResponseEntity<>(vehicleService.filterVehicleByDate(since, to), HttpStatus.OK);
     }
 
